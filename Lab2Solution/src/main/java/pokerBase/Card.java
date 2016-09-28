@@ -12,7 +12,6 @@ public class Card  implements Comparable {
 	private eRank eRank;
 	private int iCardNbr;
 	private boolean bWild;
-	private boolean c;
 	
 	Card()
 	{

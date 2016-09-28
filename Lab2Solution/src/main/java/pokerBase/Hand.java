@@ -9,6 +9,7 @@ import pokerEnums.eCardNo;
 import pokerEnums.eHandStrength;
 import pokerEnums.eRank;
 import pokerEnums.eSuit;
+import pokerExceptions.HandException;
 
 public class Hand {
 
@@ -51,9 +52,8 @@ public class Hand {
 	 * @return
 	 * @throws HandException
 	 */
-	static Hand EvaluateHand(Hand h) throws Exception {
+	static Hand EvaluateHand(Hand h) throws HandException {
 
-		// Sort the colleciton (by hand rank)
 		Collections.sort(h.getCardsInHand());
 
 		// TODO - Lab 3 Here's the code to throw the HandException
@@ -159,6 +159,31 @@ public class Hand {
 		}
 
 		return isRoyalFlush;
+	}
+
+	/**
+	 * isHandFiveOfAKind - this method will determine if the hand is a five of a
+	 * kind
+	 * 
+	 * @param h
+	 * @param hs
+	 * @return
+	 */
+	public static boolean isHandFiveOfAKind(Hand h, HandScore hs) {
+
+		boolean bHandCheck = false;
+
+		if (h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == h.getCardsInHand()
+				.get(eCardNo.FifthCard.getCardNo()).geteRank()) {
+			bHandCheck = true;
+			hs.setHandStrength(eHandStrength.FiveOfAKind.getHandStrength());
+			hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr());
+			hs.setLoHand(0);
+			ArrayList<Card> kickers = new ArrayList<Card>();
+			hs.setKickers(kickers);
+
+		}
+		return bHandCheck;
 	}
 
 	/**

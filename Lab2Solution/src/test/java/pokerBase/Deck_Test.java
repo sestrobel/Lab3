@@ -8,6 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pokerBase.Deck;
+
+import pokerExceptions.DeckException;
+
 public class Deck_Test {
 
 	@BeforeClass
@@ -30,6 +34,13 @@ public class Deck_Test {
 	public void DeckBuildTest()
 	{
 		fail("Implement Me");
+//		Deck d = new Deck();
+//		try {
+//			d.Draw();
+//		} catch (DeckException e) {
+//			e.printStackTrace();
+//		}
+//		 not sure - Liz
 	}
 	
 

@@ -2,10 +2,8 @@ package pokerEnums;
 
 public enum eSuit {
 
-	HEARTS(1), SPADES(2), CLUBS(3), DIAMONDS(4);
-	
-	//TODO - Lab 3 Add Joker(99) as a new suit
-	
+	HEARTS(1), SPADES(2), CLUBS(3), DIAMONDS(4), JOKER(99);
+		
 	private int iSuitNbr;
 
 	private eSuit(int iSuitNbr) {
