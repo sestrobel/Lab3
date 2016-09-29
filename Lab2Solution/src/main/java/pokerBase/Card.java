@@ -6,16 +6,21 @@ import java.util.Comparator;
 import pokerEnums.eRank;
 import pokerEnums.eSuit;
 
-public class Card  implements Comparable {
+public class Card implements Comparable {
 
 	private eSuit eSuit;
 	private eRank eRank;
 	private int iCardNbr;
 	private boolean bWild;
 	
-	Card()
+	public Card()
 	{
 		
+	}
+	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank) {
+		super();
+		this.eSuit = eSuit;
+		this.eRank = eRank;
 	}
 	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank, int iCardNbr) {
 		super();
