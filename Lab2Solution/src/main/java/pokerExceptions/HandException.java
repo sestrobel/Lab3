@@ -4,12 +4,15 @@ import java.lang.reflect.Method;
 
 import pokerBase.Hand;
 import pokerEnums.eHandStrength;
+import pokerEnums.eHandExceptionType;
 
 public class HandException extends Exception{
-	public HandException(String message) {
+	
+	private Hand h;
+	
+	public HandException(Hand h, String message) {
 		super(message);
-	} 
-//	public HandException(Hand h, HandException ShortHand, String message) {
-//		super(message);
-//	} Not sure, but doesn't seem right idk how to catch yet - liz
+		this.h = h;
+		
+	} //had gibbons help
 }

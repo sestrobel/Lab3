@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pokerEnums.eCardNo;
+import pokerEnums.eHandExceptionType;
 import pokerEnums.eHandStrength;
 import pokerEnums.eRank;
 import pokerEnums.eSuit;
@@ -56,12 +57,8 @@ public class Hand {
 
 		Collections.sort(h.getCardsInHand());
 
-		// TODO - Lab 3 Here's the code to throw the HandException
-		// TODO - Implement HandException
-		/*
-		 * if (h.getCardsInHand().size() != 5) { throw new
-		 * HandException(h,eHandExceptionType.ShortHand); }
-		 */
+		if (h.getCardsInHand().size() != 5) { 
+			 throw new HandException(h, eHandExceptionType.ShortHand.toString()); }
 
 		ArrayList<Hand> ExplodedHands = new ArrayList<Hand>();
 		ExplodedHands.add(h);
@@ -110,7 +107,7 @@ public class Hand {
 		}
 
 		// TODO - Lab 3. ExplodedHands has a bunch of hands.
-		// Either 1, 52, 2
+		// Either 1, 52, 2000+
 		return h;
 	}
 

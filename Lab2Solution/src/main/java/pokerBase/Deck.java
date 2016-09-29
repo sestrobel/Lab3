@@ -36,7 +36,7 @@ public class Deck {
 			deckCards.add(new Card(eSuit.JOKER, eRank.JOKER, iCardNbr++));
 		}
 		Collections.shuffle(deckCards);
-	} //I think it's good? -Liz
+	} // I think it's good? -Liz
 
 	public Deck(int NbrOfJokers, ArrayList<Card> Wilds) {
 
@@ -45,10 +45,14 @@ public class Deck {
 	}
 
 	public Card Draw() throws DeckException {
-		
-		if (deckCards.remove(0) instanceof Card)
+
+		try {
 			return deckCards.remove(0);
-		else
-			throw new DeckException("You don't have any cards left!!");		
-	} //I think it's good? -Liz
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new DeckException(this, "You don't have any cards left!!");
+		} catch (Exception e) {
+			throw new DeckException(this, "Something went wrong.");
+		}
+
+	} //had gibbons help
 }

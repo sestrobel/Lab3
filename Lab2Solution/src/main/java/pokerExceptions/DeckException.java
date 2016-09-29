@@ -1,7 +1,12 @@
 package pokerExceptions;
 
+import pokerBase.Deck;
+
 public class DeckException extends Exception {
-	public DeckException(String message) {
+	private Deck d;
+	
+	public DeckException(Deck d, String message) {
 		super(message);
-	} //Made a standard one - will just print string - how do you do catch? - Liz
+		this.d = d;
+	} //had gibbons help
 }
