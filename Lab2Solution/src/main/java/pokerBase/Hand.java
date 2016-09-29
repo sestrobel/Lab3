@@ -120,30 +120,84 @@ public class Hand {
 	 */
 
 	private static ArrayList<Hand> ExplodeHands(ArrayList<Hand> Hands) {
-//		// TODO - Lab3 Implement this
-//		for (int idx = 0; idx == Hands.size(); idx++) { //goes thru each hand
-//			for (int cardNo = 0; cardNo == 5; cardNo++){ //goes thru each card
-//				if (Hands.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) { //checks if card is joker
-//					Hands.get(idx).getCardsInHand().remove(cardNo); //removes joker, leaves indices 0-3
-//					for (eSuit eSuit : eSuit.values()) { //goes thru all suits
-//						for (eRank eRank : eRank.values()) { //goes thru all ranks
-//							if (eSuit != eSuit.JOKER && eRank != eRank.JOKER) { //makes sure u aren't adding a joker again lol
-//								Hand ex = new Hand(); //makes new hand
-//								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(0)); //adds old cards to new hand
-//								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(1));
-//								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(2));
-//								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(3));
-//								ex.AddToCardsInHand(new Card(eSuit, eRank)); //adds new card to new hand
-//								Collections.sort(ex.getCardsInHand()); //sort
-//								Hands.add(ex); //adds new hand to hands
-//								//concerns: what if hand with two jokers is passed? will it be weird? may have to make new array of hands and add the two arrays at end? idk.
-//							}
-//						}
-//					}
-//				}
-//			}
-//		}	
-		return Hands; }//I tried!! lol what's going on  -Liz
+		// TODO - Lab3 Implement this
+		ArrayList<Hand> HandsToReturn = new ArrayList<Hand>();
+		for (int idx = 0; idx == Hands.size(); idx++) {
+			// goes thru each hand
+			for (int cardNo = 0; cardNo == 5; cardNo++) {
+				// goes thru each card
+				if (Hands.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
+					// checks if card is joker
+					Hands.get(idx).getCardsInHand().remove(cardNo);
+					// removes joker, leaves indices 0-3
+					for (eSuit eSuit : eSuit.values()) {
+						// goes thru all suits
+						for (eRank eRank : eRank.values()) {
+							// goes thru all ranks
+							if (eSuit != eSuit.JOKER && eRank != eRank.JOKER) {
+								// makes sure u aren't adding a joker again lol
+								Hand ex = new Hand();
+								// makes new hand
+								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(0));
+								// adds old cards to new hand
+								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(1));
+								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(2));
+								ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(3));
+								Collections.sort(ex.getCardsInHand()); // sort
+								ex.AddToCardsInHand(new Card(eSuit, eRank));
+								// adds new card to new hand
+								HandsToReturn.add(ex); // adds new hand to hands
+								// concerns: what if hand with two jokers is
+								// passed?
+							}
+						}
+					}
+				} else if (cardNo == 4) {
+					HandsToReturn.add(Hands.get(idx));
+				}
+			}
+		}
+		for (int idx = 0; idx == HandsToReturn.size(); idx++) { 
+			// goes thru each hand
+			for (int cardNo = 0; cardNo == 5; cardNo++) { 
+				// goes thru each card
+				if (HandsToReturn.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
+					ExplodeHands(HandsToReturn);
+				}
+			}
+		}
+
+		// for (int idx = 0; idx == Hands.size(); idx++) { //goes thru each hand
+		// for (int cardNo = 0; cardNo == 5; cardNo++){ //goes thru each card
+		// if (Hands.get(idx).getCardsInHand().get(cardNo).geteRank() ==
+		// eRank.JOKER) { //checks if card is joker
+		// Hands.get(idx).getCardsInHand().remove(cardNo); //removes joker,
+		// leaves indices 0-3
+		// for (eSuit eSuit : eSuit.values()) { //goes thru all suits
+		// for (eRank eRank : eRank.values()) { //goes thru all ranks
+		// if (eSuit != eSuit.JOKER && eRank != eRank.JOKER) { //makes sure u
+		// aren't adding a joker again lol
+		// Hand ex = new Hand(); //makes new hand
+		// ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(0)); //adds
+		// old cards to new hand
+		// ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(1));
+		// ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(2));
+		// ex.AddToCardsInHand(Hands.get(idx).getCardsInHand().get(3));
+		// ex.AddToCardsInHand(new Card(eSuit, eRank)); //adds new card to new
+		// hand
+		// Collections.sort(ex.getCardsInHand()); //sort
+		// HandsToReturn.add(ex); //adds new hand to hands
+		// //concerns: what if hand with two jokers is passed?
+		// }
+		// }
+		// }
+		// } else if (cardNo == 4) {
+		// HandsToReturn.add(Hands.get(idx));
+		// }
+		// }
+		// }
+		return HandsToReturn;
+	}// I tried!! lol what's going on -Liz
 
 	public static boolean isHandRoyalFlush(Hand h, HandScore hs) {
 
