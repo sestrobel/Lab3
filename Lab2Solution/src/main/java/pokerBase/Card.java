@@ -13,17 +13,9 @@ public class Card implements Comparable {
 	private int iCardNbr;
 	private boolean bWild;
 	
-	public Card()
-	{
-		
+	public Card() {	
 	}
-	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank) {
-		super();
-		this.eSuit = eSuit;
-		this.eRank = eRank;
-		this.iCardNbr = 1;
-		this.bWild = false;
-	}
+	
 	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank, int iCardNbr) {
 		super();
 		this.eSuit = eSuit;
