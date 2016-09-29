@@ -21,12 +21,16 @@ public class Card implements Comparable {
 		super();
 		this.eSuit = eSuit;
 		this.eRank = eRank;
+		this.iCardNbr = 1;
+		this.bWild = false;
 	}
 	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank, int iCardNbr) {
 		super();
 		this.eSuit = eSuit;
 		this.eRank = eRank;
 		this.iCardNbr = iCardNbr;
+		this.bWild = false;
+
 	}
 	
 	public eSuit geteSuit() {

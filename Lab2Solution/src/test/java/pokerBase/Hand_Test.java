@@ -73,7 +73,10 @@ public class Hand_Test {
 		System.out.println(h.getHs().getHandStrength());
 	}
 	
-	
+	@Test
+	public void TestStraight() {
+
+	}
 	
 	@Test
 	public void TestFourOfAKind() {
@@ -112,7 +115,9 @@ public class Hand_Test {
 	
 		assertTrue(arr.size() == 52);
 		
-	}
+	} //i tried 
+	
+
 	
 
 }

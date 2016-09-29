@@ -124,7 +124,7 @@ public class Hand {
 		ArrayList<Hand> HandsToReturn = new ArrayList<Hand>();
 		for (int idx = 0; idx == Hands.size(); idx++) {
 			// goes thru each hand
-			for (int cardNo = 0; cardNo == 5; cardNo++) {
+			for (int cardNo = 0; cardNo < 5; cardNo++) {
 				// goes thru each card
 				if (Hands.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
 					// checks if card is joker
@@ -156,15 +156,15 @@ public class Hand {
 				}
 			}
 		}
-//		for (int idx = 0; idx == HandsToReturn.size(); idx++) { 
-//			// goes thru each hand
-//			for (int cardNo = 0; cardNo == 5; cardNo++) { 
-//				// goes thru each card
-//				if (HandsToReturn.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
-//					ExplodeHands(HandsToReturn);
-//				}
-//			}
-//		}
+		for (int idx = 0; idx == HandsToReturn.size(); idx++) { 
+			// goes thru each hand
+			for (int cardNo = 0; cardNo == 5; cardNo++) { 
+				// goes thru each card
+				if (HandsToReturn.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
+					ExplodeHands(HandsToReturn);
+				}
+			}
+		}
 
 		// for (int idx = 0; idx == Hands.size(); idx++) { //goes thru each hand
 		// for (int cardNo = 0; cardNo == 5; cardNo++){ //goes thru each card
