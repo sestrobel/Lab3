@@ -2,6 +2,8 @@ package pokerBase;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -90,6 +92,25 @@ public class Hand_Test {
 	
 		assertTrue(h.getHs().getHandStrength() == eHandStrength.FourOfAKind.getHandStrength());
 		assertTrue(h.getHs().getHiHand() == eRank.TEN.getiRankNbr());
+		
+	}
+	@Test
+	public void TestExplodeHands() {
+		Hand h = new Hand();
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.TEN,1));
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.JACK,1));
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.QUEEN,1));
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.KING,1));
+		h.AddToCardsInHand(new Card(eSuit.JOKER, eRank.JOKER,1));
+		ArrayList<Hand> arr = new ArrayList<Hand>();
+		arr.add(h);
+		try {
+			arr = Hand.ExplodeHands(arr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		assertTrue(arr.size() == 52);
 		
 	}
 	

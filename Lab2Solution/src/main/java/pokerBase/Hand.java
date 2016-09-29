@@ -119,7 +119,7 @@ public class Hand {
 	 * @return
 	 */
 
-	private static ArrayList<Hand> ExplodeHands(ArrayList<Hand> Hands) {
+	public static ArrayList<Hand> ExplodeHands(ArrayList<Hand> Hands) {
 		// TODO - Lab3 Implement this
 		ArrayList<Hand> HandsToReturn = new ArrayList<Hand>();
 		for (int idx = 0; idx == Hands.size(); idx++) {
@@ -147,8 +147,7 @@ public class Hand {
 								ex.AddToCardsInHand(new Card(eSuit, eRank));
 								// adds new card to new hand
 								HandsToReturn.add(ex); // adds new hand to hands
-								// concerns: what if hand with two jokers is
-								// passed?
+								// doesn't do anything with wilds???
 							}
 						}
 					}
@@ -157,15 +156,15 @@ public class Hand {
 				}
 			}
 		}
-		for (int idx = 0; idx == HandsToReturn.size(); idx++) { 
-			// goes thru each hand
-			for (int cardNo = 0; cardNo == 5; cardNo++) { 
-				// goes thru each card
-				if (HandsToReturn.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
-					ExplodeHands(HandsToReturn);
-				}
-			}
-		}
+//		for (int idx = 0; idx == HandsToReturn.size(); idx++) { 
+//			// goes thru each hand
+//			for (int cardNo = 0; cardNo == 5; cardNo++) { 
+//				// goes thru each card
+//				if (HandsToReturn.get(idx).getCardsInHand().get(cardNo).geteRank() == eRank.JOKER) {
+//					ExplodeHands(HandsToReturn);
+//				}
+//			}
+//		}
 
 		// for (int idx = 0; idx == Hands.size(); idx++) { //goes thru each hand
 		// for (int cardNo = 0; cardNo == 5; cardNo++){ //goes thru each card
