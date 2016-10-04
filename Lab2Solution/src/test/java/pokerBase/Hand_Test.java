@@ -57,19 +57,21 @@ public class Hand_Test {
 	public void TestStraightFlush() {
 		Hand h = new Hand();
 		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.TEN, 1));
-		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.JACK, 1));
-		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.QUEEN, 1));
-		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.EIGHT, 1));
 		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.NINE, 1));
+		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.EIGHT, 1));
+		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.SEVEN, 1));
+		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.SIX, 1));
+		Hand x = h;
 
 		try {
 			h.EvaluateHand();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		assertTrue(h == x);
+		assertTrue(h.getHs().getHiHand() == eRank.TEN.getiRankNbr());
 		assertTrue(h.getHs().getHandStrength() == eHandStrength.StraightFlush.getHandStrength());
-		assertTrue(h.getHs().getHiHand() == eRank.QUEEN.getiRankNbr());
 	}
 
 	@Test
@@ -126,6 +128,6 @@ public class Hand_Test {
 			e.printStackTrace();
 		}
 		assertTrue(arr.size() == 52);
-	} // i tried
+	}
 
 }

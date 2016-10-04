@@ -87,8 +87,6 @@ public class Hand {
 					Method meth = c.getMethod(hstr.getEvalMethod(), cArg);
 					Object o = meth.invoke(null, new Object[] { hEval, hs });
 
-					// If o = true, that means the hand evaluated- skip the rest
-					// of the evaluations
 					if ((Boolean) o) {
 						break;
 					}
@@ -197,15 +195,15 @@ public class Hand {
 	 */
 	public static boolean isHandStraightFlush(Hand h, HandScore hs) {
 		Card c = new Card();
-		boolean isRoyalFlush = false;
+		boolean isHandStraightFlush = false;
 		if ((isHandFlush(h.getCardsInHand())) && (isStraight(h.getCardsInHand(), c))) {
-			isRoyalFlush = true;
+			isHandStraightFlush = true;
 			hs.setHandStrength(eHandStrength.StraightFlush.getHandStrength());
 			hs.setHiHand(c.geteRank().getiRankNbr());
 			hs.setLoHand(0);
 		}
 
-		return isRoyalFlush;
+		return isHandStraightFlush;
 }
 
 	/**
