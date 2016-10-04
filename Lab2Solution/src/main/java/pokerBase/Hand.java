@@ -36,7 +36,7 @@ public class Hand {
 		return hs;
 	}
 
-	public void EvaulateHand() {
+	public void EvaluateHand() {
 		try {
 			Hand h = EvaluateHand(this);
 			h.hs = h.getHs();
@@ -206,7 +206,7 @@ public class Hand {
 		}
 
 		return isRoyalFlush;
-	}
+}
 
 	/**
 	 * isHandFiveOfAKind - this method will determine if the hand is a five of a
