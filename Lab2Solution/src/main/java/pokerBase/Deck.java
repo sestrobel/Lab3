@@ -11,6 +11,10 @@ public class Deck {
 
 	private ArrayList<Card> deckCards = new ArrayList<Card>();
 
+	public ArrayList<Card> getDeck() {
+		return deckCards;
+	}
+	
 	public Deck() {
 		int iCardNbr = 1;
 		for (eSuit eSuit : eSuit.values()) {
@@ -24,23 +28,23 @@ public class Deck {
 	}
 
 	public Deck(int NbrOfJoker) {
-		int iCardNbr = 1;
-		for (eSuit eSuit : eSuit.values()) {
-			for (eRank eRank : eRank.values()) {
-				if (eSuit != eSuit.JOKER && eRank != eRank.JOKER) {
-					deckCards.add(new Card(eSuit, eRank, iCardNbr++));
+		this();
+		for (int x = 0; x < NbrOfJoker; x++) {
+			deckCards.add(new Card(eSuit.JOKER, eRank.JOKER, 99));
+		}
+		Collections.shuffle(deckCards);
+	}
+
+	public Deck(int NbrOfJokers, ArrayList<Card> Wilds) {
+		this(NbrOfJokers);
+		for (Card c : deckCards) {
+			for (Card wc : Wilds) {
+				if (c.geteRank() == wc.geteRank() && c.geteSuit() == wc.geteSuit()) {
+					c.setbWild(true);
 				}
 			}
 		}
-		for (int x = 0; x == NbrOfJoker; x++) {
-			deckCards.add(new Card(eSuit.JOKER, eRank.JOKER, iCardNbr++));
-		}
 		Collections.shuffle(deckCards);
-	} // I think it's good? -Liz
-
-	public Deck(int NbrOfJokers, ArrayList<Card> Wilds) {
-
-		// TODO Lab3 - Implement joker and wild constructor
 
 	}
 
@@ -54,5 +58,5 @@ public class Deck {
 			throw new DeckException(this, "Something went wrong.");
 		}
 
-	} //had gibbons help
+	} // had gibbons help
 }

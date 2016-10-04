@@ -19,9 +19,7 @@ public class Hand_Test {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
-
 	}
-
 	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
@@ -66,7 +64,6 @@ public class Hand_Test {
 		try {
 			h.EvaulateHand();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -106,16 +103,13 @@ public class Hand_Test {
 		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.KING,1));
 		h.AddToCardsInHand(new Card(eSuit.JOKER, eRank.JOKER,1));
 		ArrayList<Hand> arr = new ArrayList<Hand>();
-		arr.add(h);
 		try {
-			arr = Hand.ExplodeHands(arr);
+			arr = Hand.ExplodeHands(h);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
-		assertTrue(arr.size() == 52);
-		
-	} //i tried 
+		assertTrue(arr.size() == 52);	
+	} //i tried
 	
 
 	
