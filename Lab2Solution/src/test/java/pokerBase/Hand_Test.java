@@ -84,16 +84,17 @@ public class Hand_Test {
 		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.QUEEN,1));
 		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.KING,1));
 		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.NINE,1));
-		
+
 		try {
-			h.EvaluateHand();
+			h = Hand.EvaluateHand(h);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		assertTrue(h.getHs().getHiHand() == eRank.KING.getiRankNbr());
 		assertTrue(h.getHs().getHandStrength() == eHandStrength.StraightFlush.getHandStrength());
+
+
 	}
 	
 
@@ -114,6 +115,8 @@ public class Hand_Test {
 	
 		assertTrue(h.getHs().getHandStrength() == eHandStrength.Straight.getHandStrength());
 		assertTrue(h.getHs().getHiHand() == eRank.ACE.getiRankNbr());
+
+		
 		
 	}
 

@@ -2,6 +2,8 @@ package pokerBase;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pokerBase.Deck;
-
+import pokerEnums.eRank;
+import pokerEnums.eSuit;
 import pokerExceptions.DeckException;
 
 public class Deck_Test {
@@ -31,18 +34,29 @@ public class Deck_Test {
 	}
 
 	@Test
-	public void DeckBuildTest()
-	{
-		fail("Implement Me");
-//		Deck d = new Deck();
-//		try {
-//			d.Draw();
-//		} catch (DeckException e) {
-//			e.printStackTrace();
-//		}
-//		 not sure - Liz
+	public void DeckBuildTest() {
+		Deck d = new Deck();
+		assertTrue(d.getDeck().size() == 52);
 	}
-	
 
+	@Test
+	public void JokerDeckBuildTest() {
+		Deck d = new Deck(2);
+		assertTrue(d.getDeck().size() == 54);
+	}
+
+	@Test
+	public void JokerWildDeckBuildTest() {
+		ArrayList<Card> wilds = new ArrayList<Card>();
+		wilds.add(new Card(eSuit.CLUBS, eRank.TWO, 1));
+		wilds.add(new Card(eSuit.DIAMONDS, eRank.TWO, 1));
+		wilds.add(new Card(eSuit.SPADES, eRank.TWO, 1));
+		wilds.add(new Card(eSuit.HEARTS, eRank.TWO, 1));
+
+		Deck d = new Deck(2, wilds);
+		
+		assertTrue(d.getDeck().size() == 54);
+
+	}
 
 }

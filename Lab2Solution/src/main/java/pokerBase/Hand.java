@@ -345,7 +345,6 @@ public class Hand {
 		highCard.seteSuit(cards.get(eCardNo.FirstCard.getCardNo()).geteSuit());
 
 		if (cards.get(eCardNo.FirstCard.getCardNo()).geteRank() == eRank.ACE) {
-			// First card is an 'ace', handle aces
 			bAce = true;
 			iStartCard++;
 		}
