@@ -39,8 +39,8 @@ public class Hand {
 	public void EvaluateHand() {
 		try {
 			Hand h = EvaluateHand(this);
-			h.hs = h.getHs();
-			h.bScored = h.bScored;
+			hs = h.getHs();
+			bScored = h.bScored;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

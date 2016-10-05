@@ -37,6 +37,14 @@ public class Deck_Test {
 	public void DeckBuildTest() {
 		Deck d = new Deck();
 		assertTrue(d.getDeck().size() == 52);
+		try {
+			Card x = d.Draw();
+			assertTrue(x instanceof Card);
+		} catch (DeckException e) {
+			e.printStackTrace();
+		}
+
+		
 	}
 
 	@Test

@@ -67,7 +67,6 @@ public class Hand_Test {
 //		try {
 //			h.EvaluateHand();
 //		} catch (Exception e) {
-//			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
 //		
@@ -499,6 +498,38 @@ public class Hand_Test {
 	
 		assertTrue(h.getHs().getHandStrength() == eHandStrength.HighCard.getHandStrength());
 		assertTrue(h.getHs().getHiHand() == eRank.ACE.getiRankNbr());
+		
+	}
+	
+//	public void EvaluateHand() {
+//		try {
+//			Hand h = EvaluateHand(this);
+//			h.hs = h.getHs();
+//			h.bScored = h.bScored;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
+	
+	@Test
+	public void TestEvaluateHand() {
+		Hand h = new Hand();
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.THREE,1));
+		h.AddToCardsInHand(new Card(eSuit.HEARTS, eRank.TEN,1));
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.FIVE,1));
+		h.AddToCardsInHand(new Card(eSuit.SPADES, eRank.QUEEN,1));
+		h.AddToCardsInHand(new Card(eSuit.CLUBS, eRank.ACE,1));
+		Hand x = h; //undergoes h.evaluatehand
+		Hand y = h; //undergoes h = Hand.evaluatehand(h)
+		try {
+			y = Hand.EvaluateHand(y);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		x.EvaluateHand();
+	
+		assertTrue(x.getHs().getHandStrength() == y.getHs().getHandStrength());
 		
 	}
 	
