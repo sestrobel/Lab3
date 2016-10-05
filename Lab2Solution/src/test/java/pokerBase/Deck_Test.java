@@ -52,11 +52,8 @@ public class Deck_Test {
 		wilds.add(new Card(eSuit.DIAMONDS, eRank.TWO, 1));
 		wilds.add(new Card(eSuit.SPADES, eRank.TWO, 1));
 		wilds.add(new Card(eSuit.HEARTS, eRank.TWO, 1));
-
 		Deck d = new Deck(2, wilds);
-		
 		assertTrue(d.getDeck().size() == 54);
-
 	}
 
 }

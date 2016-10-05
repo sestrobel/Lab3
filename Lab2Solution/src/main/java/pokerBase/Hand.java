@@ -121,7 +121,7 @@ public class Hand {
 		if (Hand.HandRank.compare(Hands.get(0), Hands.get(1)) == 0) {
 			throw new HandException(Hands, "There are equal hands in here!");
 		} else {
-				return Hands.get(0);
+			return Hands.get(0);
 		}
 	}
 
